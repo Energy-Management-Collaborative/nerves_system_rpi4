@@ -1,0 +1,28 @@
+From 7617a5199477ceb05f815f1ab3bdb3d8f257bc4d Mon Sep 17 00:00:00 2001
+From: abelino <abelino.romo@gmail.com>
+Date: Thu, 30 Jun 2022 18:33:22 -0700
+Subject: [PATCH 1/2] Update SPI defaults and make configurable
+
+---
+ libloragw/src/loragw_spi.native.c | 5 ++---
+ 1 file changed, 2 insertions(+), 3 deletions(-)
+
+diff --git a/libloragw/src/loragw_spi.native.c b/libloragw/src/loragw_spi.native.c
+index c01ed1c..2a1d78f 100644
+--- a/libloragw/src/loragw_spi.native.c
++++ b/libloragw/src/loragw_spi.native.c
+@@ -53,9 +53,8 @@ Maintainer: Sylvain Miermont
+ 
+ #define READ_ACCESS     0x00
+ #define WRITE_ACCESS    0x80
+-#define SPI_SPEED       8000000
+-#define SPI_DEV_PATH    "/dev/spidev0.0"
+-//#define SPI_DEV_PATH    "/dev/spidev32766.0"
++#define SPI_SPEED       (getenv("LORAGW_SPI_SPEED")==NULL ? 2000000 : atoi(getenv("LORAGW_SPI_SPEED")))
++#define SPI_DEV_PATH    (getenv("LORAGW_SPI")==NULL ? "/dev/spidev0.0" : getenv("LORAGW_SPI"))
+ 
+ /* -------------------------------------------------------------------------- */
+ /* --- PUBLIC FUNCTIONS DEFINITION ------------------------------------------ */
+-- 
+2.36.1
+

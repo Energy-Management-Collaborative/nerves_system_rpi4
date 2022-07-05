@@ -1,0 +1,8 @@
+menu "Custom Packages"
+
+source "$NERVES_DEFCONFIG_DIR/package/lora-gateway/Config.in"
+source "$NERVES_DEFCONFIG_DIR/package/packet-forwarder/Config.in"
+source "$NERVES_DEFCONFIG_DIR/package/erlang-21.0/Config.in"
+source "$NERVES_DEFCONFIG_DIR/package/lorawan-server/Config.in"
+
+endmenu

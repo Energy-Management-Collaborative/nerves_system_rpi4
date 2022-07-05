@@ -1,0 +1,9 @@
+config BR2_PACKAGE_LORAWAN_SERVER
+	bool "lorawan-server"
+	default y
+	depends on BR2_PACKAGE_PACKET_FORWARDER
+	depends on BR2_PACKAGE_ERLANG_21_0
+	help
+	  Compact server for private LoRaWAN networks
+
+	  https://github.com/gotthardp/lorawan-server

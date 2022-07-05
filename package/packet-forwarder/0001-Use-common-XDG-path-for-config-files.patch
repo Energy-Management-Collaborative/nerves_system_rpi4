@@ -1,0 +1,29 @@
+From 38df097324db82d44fd438e6a8166378be9d9fb0 Mon Sep 17 00:00:00 2001
+From: abelino <abelino.romo@gmail.com>
+Date: Fri, 1 Jul 2022 01:10:20 -0700
+Subject: [PATCH] Use common XDG path for config files
+
+---
+ lora_pkt_fwd/src/lora_pkt_fwd.c | 6 +++---
+ 1 file changed, 3 insertions(+), 3 deletions(-)
+
+diff --git a/lora_pkt_fwd/src/lora_pkt_fwd.c b/lora_pkt_fwd/src/lora_pkt_fwd.c
+index 801f28d..e26a1a8 100644
+--- a/lora_pkt_fwd/src/lora_pkt_fwd.c
++++ b/lora_pkt_fwd/src/lora_pkt_fwd.c
+@@ -980,9 +980,9 @@ int main(void)
+     int x;
+
+     /* configuration file related */
+-    char *global_cfg_path= "global_conf.json"; /* contain global (typ. network-wide) configuration */
+-    char *local_cfg_path = "local_conf.json"; /* contain node specific configuration, overwrite global parameters for parameters that are defined in both */
+-    char *debug_cfg_path = "debug_conf.json"; /* if present, all other configuration files are ignored */
++    char *global_cfg_path= "/root/.config/packet_forwarder/global_conf.json";
++    char *local_cfg_path = "/root/.config/packet_forwarder/local_conf.json";
++    char *debug_cfg_path = "/root/.config/packet_forwarder/debug_conf.json";
+
+     /* threads */
+     pthread_t thrid_up;
+--
+2.36.1
+

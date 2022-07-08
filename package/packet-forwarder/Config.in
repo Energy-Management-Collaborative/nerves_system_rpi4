@@ -1,0 +1,10 @@
+config BR2_PACKAGE_PACKET_FORWARDER
+	bool "packet-forwarder"
+	default y
+	depends on BR2_PACKAGE_LORA_GATEWAY
+	help
+	  A LoRa packet forwarder is a program running on the host of a LoRa
+	  gateway that forwards RF packets received by the concentrator to a server
+	  through an IP/UDP link, and emits RF packets that are sent by the server.
+
+	  https://github.com/lora-net/packet_forwarder

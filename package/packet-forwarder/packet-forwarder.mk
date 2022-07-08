@@ -18,7 +18,7 @@ define PACKET_FORWARDER_BUILD_CMDS
 endef
 
 define PACKET_FORWARDER_INSTALL_TARGET_CMDS
-	$(INSTALL) -D -m 0644 $(@D)/lora_pkt_fwd/global_conf.json $(TARGET_DIR)/root/.config/packet_forwarder/global_conf.json
+	$(INSTALL) -D -m 0644 $(PACKET_FORWARDER_PKGDIR)/global_conf.json $(TARGET_DIR)/etc/packet_forwarder/global_conf.json
 	$(INSTALL) -D -m 0755 $(@D)/lora_pkt_fwd/update_gwid.sh $(TARGET_DIR)/opt/packet_forwarder/update_gwid.sh
 	$(INSTALL) -D -m 0755 $(@D)/lora_pkt_fwd/lora_pkt_fwd $(TARGET_DIR)/opt/packet_forwarder/lora_pkt_fwd
 endef
